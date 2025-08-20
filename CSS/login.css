@@ -1,0 +1,147 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #6a82fb, #fc5c7d);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeInBody 1s ease-in;
+}
+
+/* Animation for body fade-in */
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Login Section */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* Animation for login box */
+.login-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  color: #fff;
+  animation: slideIn 1s ease forwards;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.login-box h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.login-box p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #f0f0f0;
+  animation: fadeInUp 1.4s ease-in-out;
+}
+
+/* Input group with fade animation */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1.6s ease-in-out;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Button hover with animation */
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  background: #fff;
+  color: #fc5c7d;
+  font-weight: bold;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.8s ease-in-out;
+}
+
+.login-btn:hover {
+  background: #fc5c7d;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Fade-in up animation for each element */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.signup-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #eee;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+.signup-link a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+  color: #ffd2e2;
+}

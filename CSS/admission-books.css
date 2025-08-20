@@ -1,0 +1,343 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: #f9f9fb;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  color: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Enhanced Logo Container */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 70px; /* More reasonable size */
+  transition: all 0.3s ease;
+}
+
+.logo-img {
+  height: 100%;
+  width: auto;
+  max-width: 200px; /* Prevents over-scaling */
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Logo Hover Effects */
+.logo:hover .logo-img {
+  transform: scale(1.03);
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Click Feedback */
+.logo:active .logo-img {
+  transform: scale(0.98);
+}
+
+/* Responsive Logo */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 30px;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .logo-img {
+    max-width: 160px;
+  }
+}
+
+/* Navigation Links (unchanged) */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  padding: 10px 15px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border-radius: 4px;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+  transform: translateY(-10px);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+.nav-links a:hover::before {
+  width: 80%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Active link effect */
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 8px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Menu (unchanged) */
+.dropdown-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-auto-rows: auto;
+  gap: 10px;
+  padding: 10px 15px;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: white;
+  min-width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-content li a {
+  color: #333;
+  padding: 10px 15px;
+  display: block;
+  font-weight: 400;
+  transition: background 0.2s ease;
+}
+
+.dropdown-content li a:hover {
+  background: #4f4f94;
+  color: white;
+  top: 12px;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+}
+/* Profile */
+.user-profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%; /* Make it round */
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  min-width: 160px;
+  z-index: 100;
+}
+
+.user-dropdown a {
+  padding: 10px 15px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.user-dropdown a:hover {
+  background: #f0f0f0;
+}
+
+.user-profile.active .user-dropdown {
+  display: block;
+}
+
+/* Hero Section */
+.job-hero {
+  background-image: url('images/job-banner.jpg'); /* Replace with your actual image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.job-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.job-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.job-hero .hero-content h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.job-hero .hero-content p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/* Job Section */
+.job-section {
+  background-color: #f9f9fb;
+  padding: 80px 20px;
+}
+
+.job-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.job-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.3s ease;
+  width: 280px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 340px;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.job-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.job-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Apply Button */
+.view-btn {
+background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+  display: block; 
+}
+
+.view-btn:hover {
+  background-color: #218838;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(to right, #7e3ff2, #dc5aba);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}

@@ -1,0 +1,257 @@
+/* signup.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 15px 80px;
+  color: white;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  justify-content: flex-start; /* Align items to left by default */
+  gap: 20px; /* space between logo and other navbar items */
+}
+
+/* Make logo container fixed at top-left */
+.logo {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  z-index: 1100; /* above navbar */
+  background: transparent;
+  padding: 5px 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Adjust logo image size */
+.logo-img {
+  height: 100%;
+  max-width: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* On hover effects */
+.logo:hover .logo-img {
+  transform: scale(1.03);
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.logo:active .logo-img {
+  transform: scale(0.98);
+}
+
+/* To avoid navbar content hidden under fixed logo on small screen, add left padding to navbar */
+.navbar-content {
+  flex: 1;
+  padding-left: 220px; /* adjust based on logo width + margin */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo {
+    height: 50px;
+    top: 12px;
+    left: 12px;
+  }
+  .logo-img {
+    max-width: 140px;
+  }
+  .navbar-content {
+    padding-left: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-content {
+    padding-left: 140px;
+  }
+}
+
+
+body {
+  background: linear-gradient(to right, #6a82fb, #fc5c7d);
+  min-height: 100vh;
+  padding: 50px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBody 1s ease-in forwards;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeInBody {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.signup-container {
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow:
+    0 15px 25px rgba(106, 130, 251, 0.2),
+    0 10px 10px rgba(252, 92, 125, 0.1);
+  animation: slideIn 1.2s ease forwards;
+  transform: translateY(40px);
+  opacity: 0;
+  margin-bottom: 50px;
+  transition: box-shadow 0.3s ease;
+}
+
+.signup-container:hover {
+  box-shadow:
+    0 25px 40px rgba(106, 130, 251, 0.3),
+    0 15px 20px rgba(252, 92, 125, 0.15);
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 1.2px;
+  animation: fadeInUp 1.4s ease;
+  user-select: none;
+}
+
+.input-group {
+  margin-bottom: 22px;
+  animation: fadeInUp 1.6s ease;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  background: #fafafa;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.input-group input:focus {
+  border-color: #6a82fb;
+  box-shadow:
+    0 0 8px 2px rgba(106, 130, 251, 0.4),
+    inset 0 2px 5px rgba(0,0,0,0.05);
+  background: #fff;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 14px 0;
+  background: #fc5c7d;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.35s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1.8s ease;
+  box-shadow: 0 5px 15px rgba(252, 92, 125, 0.3);
+  user-select: none;
+}
+
+.signup-btn:hover {
+  background-color: #f24467;
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(252, 92, 125, 0.5);
+}
+
+.signin-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  color: #333;
+  animation: fadeInUp 2s ease;
+  user-select: none;
+}
+
+.signin-link a {
+  color: #6a82fb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signin-link a:hover {
+  color: #3f5ae0;
+  text-decoration: underline;
+}
+
+/* Fade-in-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .signup-container {
+    padding: 30px 20px;
+    max-width: 100%;
+  }
+
+  .signup-form h2 {
+    font-size: 24px;
+  }
+
+  .signup-btn {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+}
