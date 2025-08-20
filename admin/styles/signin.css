@@ -1,0 +1,206 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --success-color: #4cc9f0;
+  --warning-color: #f72585;
+  --gray-color: #adb5bd;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 30px rgba(2, 6, 23, 0.1);
+  --transition: all 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  color: var(--dark-color);
+  background: radial-gradient(
+      1000px 400px at 10% -10%,
+      rgba(67, 97, 238, 0.1),
+      transparent 40%
+    ),
+    radial-gradient(
+      900px 380px at 100% 0%,
+      rgba(72, 149, 239, 0.12),
+      transparent 45%
+    ),
+    #f5f7fa;
+}
+
+.app-bar {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
+}
+.app-bar h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.container {
+  max-width: 440px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 28px 26px;
+  animation: cardIn 0.35s ease both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.logo {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid #eef2ff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.error-message {
+  background: rgba(247, 37, 133, 0.08);
+  color: #7a073d;
+  border: 1px solid rgba(247, 37, 133, 0.35);
+  border-left: 4px solid var(--warning-color);
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 10px 0 14px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container input[type="email"],
+.input-container input[type="password"] {
+  width: 100%;
+  padding: 12px 44px 12px 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #fff;
+  transition: var(--transition);
+}
+
+.input-container input::placeholder {
+  color: var(--gray-color);
+}
+
+.input-container input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(72, 149, 239, 0.15);
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: #64748b;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.password-toggle:hover {
+  background: #f1f5f9;
+  color: var(--secondary-color);
+}
+
+.submit-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(63, 55, 201, 0.22);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 8px;
+}
+.submit-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+.submit-btn:active {
+  transform: translateY(0);
+}
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+  -webkit-text-fill-color: #111827 !important;
+}
